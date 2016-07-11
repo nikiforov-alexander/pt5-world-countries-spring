@@ -1,6 +1,8 @@
 package com.teamtreehouse.countries.model;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class Country {
     private int mId;
@@ -28,6 +30,9 @@ public class Country {
 
     public Long getPopulation() {
         return mPopulation;
+    }
+    public String getPopulationHumanReadableFormat() {
+        return NumberFormat.getNumberInstance(Locale.US).format(mPopulation);
     }
 
     public void setPopulation(Long population) {
