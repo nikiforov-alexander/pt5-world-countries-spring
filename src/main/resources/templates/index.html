@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" th:href="@{/app.css}" />
-    <!--icons-->
-    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon">
-    <link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon">
-	<title>Countries of the World</title>
-</head>
+<head th:replace="layout :: head('home')"> </head>
 <body>
-	<header>
-		<div class="container">
-			<h1><a th:href="@{/}">Countries of the World</a></h1>
-		</div>
-	</header>
+	<header th:replace="layout :: header('')"></header>
 	<div class="container">
 		<div th:each="country : ${countries}" class="country">
-			<a th:href="@{'/country/' + ${country.id}}">
+			<!--/* URL will be /country/id/slug-from-name */-->
+			<a th:href="@{'/country/' + ${country.id} + ${country.slugFromName}}">
 				<img th:src="@{'/flags/' + ${country.flagFileName}}"
                      th:alt="${country.name}"/>
 				<h4 th:text="${country.name}"></h4>
