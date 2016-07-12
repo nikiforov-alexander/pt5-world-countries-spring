@@ -29,7 +29,7 @@ public class CountryRepositoryTest {
         Country country2 = sortedList.get(2);
         int comparisonInteger =
                 country1.getName().compareTo(country2.getName());
-        assertTrue(comparisonInteger <= 0);
+        assertTrue(comparisonInteger >= 0);
     }
 
     @Test
@@ -38,11 +38,11 @@ public class CountryRepositoryTest {
         // When repository is sorted by population
         List<Country> sortedList =
                 mCountryRepository.sortCountriesByPopulation();
-        // Then first country in the list should be less or equal than second
+        // Then first country in the list should be more or equal than second
         Country country1 = sortedList.get(1);
         Country country2 = sortedList.get(2);
         int comparisonInteger =
                 country1.getPopulation().compareTo(country2.getPopulation());
-        assertTrue(comparisonInteger <= 0);
+        assertTrue(comparisonInteger >= 0);
     }
 }
