@@ -47,15 +47,6 @@ public class CountryRepository {
                     .build()
     );
 
-    public Country findByName(String name) {
-        return ALL_COUNTRIES.stream()
-                .filter(country -> country
-                        .getName().toLowerCase()
-                        .equals(name.toLowerCase()))
-                .findFirst()
-                .orElse(null);
-    }
-
     public List<Country> findAll() {
         return ALL_COUNTRIES;
     }
