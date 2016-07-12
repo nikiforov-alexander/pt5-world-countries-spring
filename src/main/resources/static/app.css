@@ -16,7 +16,7 @@ header h1 {
 	margin: 0;
 	padding: 10px 0;
 	font-weight: 300;
-	text-transform: lowercase;
+	/*text-transform: capitalize;*/
 }
 
 header h1 a {

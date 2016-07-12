@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(page_title)">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" th:href="@{/app.css}" />
+    <!--icons-->
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon">
+    <link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon">
+	<title th:text="'countries | ' + ${page_title}">Countries of the World</title>
+</head>
+<body>
+	<header th:fragment="header(title)">
+		<div class="container">
+            <h1><a th:text="'Countries of the World ' + ${title}"
+                   th:href="@{/}">Countries of the World</a></h1>
+		</div>
+	</header>
+</body>
+</html>
