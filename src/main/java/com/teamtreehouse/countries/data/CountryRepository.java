@@ -10,18 +10,18 @@ import java.util.*;
 public class CountryRepository {
     private static final List<Country> ALL_COUNTRIES = Arrays.asList(
             new CountryBuilder(1)
-                    .withName("Ecuador")
-                    .withCapital("Quito")
-                    .withPopulation(1614400L)
-                    .withFlagFileName("ecuador.png")
-                    .withLanguages(Arrays.asList("Spanish"))
-                    .build(),
-            new CountryBuilder(2)
                     .withName("France")
                     .withCapital("Paris")
                     .withPopulation(66710000L)
                     .withFlagFileName("france.png")
                     .withLanguages(Arrays.asList("French"))
+                    .build(),
+            new CountryBuilder(2)
+                    .withName("Ecuador")
+                    .withCapital("Quito")
+                    .withPopulation(1614400L)
+                    .withFlagFileName("ecuador.png")
+                    .withLanguages(Arrays.asList("Spanish"))
                     .build(),
             new CountryBuilder(3)
                     .withName("India")
