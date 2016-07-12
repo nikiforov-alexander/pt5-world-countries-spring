@@ -38,6 +38,9 @@ dependencies {
     // used to make slugs from titles
     compile group: 'com.github.slugify', name: 'slugify', version: '2.1.5'
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    // making thymeleaf to be HTML5 compliant see TemplateConfig @Bean
+    // https://mvnrepository.com/artifact/net.sourceforge.nekohtml/nekohtml
+    compile group: 'net.sourceforge.nekohtml', name: 'nekohtml', version: '1.9.22'
 }
 
 bootRun {
