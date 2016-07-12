@@ -22,9 +22,11 @@ public class CountryController {
         modelMap.put("countries", countries);
         return "index";
     }
-
-    @RequestMapping("/country/{id}")
-    public String countryDetails(@PathVariable String id, ModelMap modelMap) {
+    @RequestMapping("/country/{id}/{slugFromName}")
+    public String countryDetails(
+            @PathVariable("id") String id,
+            @PathVariable("slugFromName") String slugFromName,
+            ModelMap modelMap) {
         int parsedId = Integer.valueOf(id);
         Country country = mCountryRepository.findById(parsedId);
         modelMap.put("country", country);
