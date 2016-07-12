@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -22,6 +23,26 @@ public class CountryController {
         modelMap.put("countries", countries);
         return "index";
     }
+
+    @RequestMapping(value = "/", params = "sort")
+    public String sortByName(@RequestParam ("sort") String property,
+            ModelMap modelMap) {
+        List<Country> countries;
+        switch (property) {
+            case "name":
+                countries = mCountryRepository.sortCountriesByName();
+                break;
+            case "population":
+                countries = mCountryRepository.sortCountriesByPopulation();
+                break;
+            default:
+                countries = mCountryRepository.findAll();
+                break;
+        }
+        modelMap.put("countries", countries);
+        return "index";
+    }
+
     @RequestMapping("/country/{id}/{slugFromName}")
     public String countryDetails(
             @PathVariable("id") String id,

@@ -135,4 +135,17 @@ public class Country {
             return new Country(this);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "mId=" + mId +
+                ", mName='" + mName + '\'' +
+                ", mSlugFromName='" + mSlugFromName + '\'' +
+                ", mPopulation=" + mPopulation +
+                ", mCapital='" + mCapital + '\'' +
+                ", mLanguages=" + mLanguages +
+                ", mFlagFileName='" + mFlagFileName + '\'' +
+                '}';
+    }
 }
