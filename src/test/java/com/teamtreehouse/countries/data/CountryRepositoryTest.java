@@ -29,7 +29,7 @@ public class CountryRepositoryTest {
         Country country2 = sortedList.get(2);
         int comparisonInteger =
                 country1.getName().compareTo(country2.getName());
-        assertTrue(comparisonInteger >= 0);
+        assertTrue(comparisonInteger <= 0);
     }
 
     @Test
