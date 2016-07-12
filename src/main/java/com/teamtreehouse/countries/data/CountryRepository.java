@@ -4,8 +4,7 @@ import com.teamtreehouse.countries.model.Country;
 import com.teamtreehouse.countries.model.Country.CountryBuilder;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Component // with this we can use @Autowired later
 public class CountryRepository {
@@ -56,5 +55,14 @@ public class CountryRepository {
                 .filter(country -> country.getId() == id)
                 .findFirst()
                 .orElse(null);
+    }
+
+    public List<Country> sortCountriesByName() {
+        List<Country> listOfCountriesSortedByName =
+                new ArrayList<>(ALL_COUNTRIES);
+        listOfCountriesSortedByName.sort(
+                (c1,c2) -> c1.getName().compareToIgnoreCase(c2.getName())
+        );
+        return listOfCountriesSortedByName;
     }
 }
