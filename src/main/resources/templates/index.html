@@ -8,7 +8,7 @@
 			<!--/* URL will be /country/id/slug-from-name */-->
 			<a th:href="@{'/country/' + ${country.id} + '/'+ ${country.slugFromName}}">
 				<img th:src="@{'/flags/' + ${country.flagFileName}}"
-                     th:alt="${country.name}"/>
+                     th:alt="'Flag of ' + ${country.name}"/>
 				<h4 th:text="${country.name}"></h4>
 			</a>
         </div>
