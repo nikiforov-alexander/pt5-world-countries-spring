@@ -57,11 +57,22 @@ public class CountryRepository {
                 .orElse(null);
     }
 
+    // sort countries in descending order A-Z
     public List<Country> sortCountriesByName() {
         List<Country> listOfCountriesSortedByName =
                 new ArrayList<>(ALL_COUNTRIES);
         listOfCountriesSortedByName.sort(
                 (c1,c2) -> c1.getName().compareToIgnoreCase(c2.getName())
+        );
+        return listOfCountriesSortedByName;
+    }
+
+    // sort countries in ascending order 1-9
+    public List<Country> sortCountriesByPopulation() {
+        List<Country> listOfCountriesSortedByName =
+                new ArrayList<>(ALL_COUNTRIES);
+        listOfCountriesSortedByName.sort(
+                (c1,c2) -> c2.getPopulation().compareTo(c1.getPopulation())
         );
         return listOfCountriesSortedByName;
     }
