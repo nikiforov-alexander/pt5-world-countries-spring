@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-	<link rel="stylesheet" th:href="@{/app.css}" />
-
-	<title th:text="${country.name}"></title>
-    <!--icons-->
-    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
-    <link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
-</head>
+<head th:replace="layout :: head(${country.name})"></head>
 <body>
-	<header>
-		<div class="container">
-			<h1><a th:href="@{/}">Countries of the World</a></h1>
-		</div>
-	</header>
+	<header th:replace="layout :: header(': ' + ${country.name})"></header>
 	<div class="container">
 		<div class="country-details">
 			<h2 th:text="${country.name}"></h2>
