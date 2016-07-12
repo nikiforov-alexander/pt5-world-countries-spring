@@ -34,29 +34,4 @@ public class TemplateConfig {
         viewResolver.setOrder(1);
         return viewResolver;
     }
-    // setting from spring-basics teachers notes
-//      @Bean
-//      public ThymeleafViewResolver viewResolver() {
-//          ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-//          viewResolver.setTemplateEngine(templateEngine());
-//          return viewResolver;
-//      }
-//
-//      @Bean
-//      public SpringTemplateEngine templateEngine() {
-//          SpringTemplateEngine engine = new SpringTemplateEngine();
-//          engine.setTemplateResolver(templateResolver());
-//          return engine;
-//      }
-//
-//      @Bean
-//      public ServletContextTemplateResolver templateResolver() {
-//          ServletContextTemplateResolver templateResolver =
-//                  new ServletContextTemplateResolver();
-//          templateResolver.setPrefix("/templates/");
-//          templateResolver.setSuffix(".html");
-//          templateResolver.setTemplateMode("HTML5");
-//          templateResolver.setOrder(1);
-//          return templateResolver;
-//      }
 }
