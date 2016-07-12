@@ -23,7 +23,18 @@ header h1 a {
 	color: #fff;
 	text-decoration: none;
 }
+/* added this decorations for sort by filter in index page */
+header h2 {
+	margin: 0;
+	padding: 10px 0;
+	font-weight: 300;
+	/*text-transform: capitalize;*/
+}
 
+header h2 a {
+	color: #fff;
+	text-decoration: none;
+}
 .container {
 	margin: 0;
 	padding: 10px;
