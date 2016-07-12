@@ -1,5 +1,8 @@
 package com.teamtreehouse.countries.model;
 
+import com.github.slugify.Slugify;
+
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
@@ -7,6 +10,7 @@ import java.util.Locale;
 public class Country {
     private int mId;
     private String mName;
+    private String mSlugFromName;
     private Long mPopulation;
     private String mCapital;
     private List<String> mLanguages;
@@ -15,7 +19,6 @@ public class Country {
     public int getId() {
         return mId;
     }
-
     public void setId(int id) {
         mId = id;
     }
@@ -23,7 +26,9 @@ public class Country {
     public String getName() {
         return mName;
     }
-
+    public String getSlugFromName() {
+        return mSlugFromName;
+    }
     public void setName(String name) {
         mName = name;
     }
@@ -31,6 +36,7 @@ public class Country {
     public Long getPopulation() {
         return mPopulation;
     }
+    // used to print population in html in nice format
     public String getPopulationHumanReadableFormat() {
         return NumberFormat.getNumberInstance(Locale.US).format(mPopulation);
     }
@@ -84,6 +90,12 @@ public class Country {
         mCapital = builder.mCapital;
         mLanguages = builder.mLanguages;
         mFlagFileName = builder.mFlagFileName;
+        try {
+            Slugify slugify = new Slugify();
+            mSlugFromName = slugify.slugify(mName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // builder class
