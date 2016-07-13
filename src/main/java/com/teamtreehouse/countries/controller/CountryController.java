@@ -25,7 +25,7 @@ public class CountryController {
     }
 
     @RequestMapping(value = "/", params = "sort")
-    public String sortByName(@RequestParam ("sort") String property,
+    public String sortByParameter(@RequestParam ("sort") String property,
             ModelMap modelMap) {
         List<Country> countries;
         switch (property) {
