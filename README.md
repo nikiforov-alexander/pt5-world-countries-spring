@@ -50,6 +50,11 @@
 
 [spark-blog-readme]: 
     https://github.com/nikiforov-alexander/pt4-spark-blog#eclipse "Spark Blog README"
+[resources]: src/main/resources "/src/main/resources"
+[static]: src/main/resources/static "/src/main/resources/static"
+[app.css]: src/main/resources/static/app.css "src/main/resources/static/app.css"
+[favicon.ico]: src/main/resources/static/favicon.ico "src/main/resources/static/favicon.ico"
+[flags]: src/main/resources/static/flags "/src/main/resources/static/flags"
 ### Eclipse Installation instructions
 <hr> <a id="eclipse"></a>
     I generated necessary `.classpath`, `.project` and 
@@ -62,4 +67,28 @@
     program `bootRun` task of `Gradle` is used.
 <hr>
 ### Tasks
-1.
+1. <a id="task-1"></a>
+    Gather current, accurate information on the five countries you’ll 
+    be including in your application. The information must include the 
+    following:
+    - Country name
+    - Population
+    - Capital city
+    - Official language(s)
+    - Image of flag
+    
+    <hr>
+    All is done using Wikipedia pages
+<hr>
+2. <a id="task-2"></a>
+    In IntelliJ IDEA, create a Gradle project. Add all required Spring 
+    dependencies, and create the directory and package structure of 
+    the application. Save all static assets into the proper directory.
+    <hr>
+    Dependencies added, static assets saved in [static] directory:
+    - [app.css]
+    - [favicon.ico]
+    - all flag images in [flags] sub-directory
+    
+    <hr>
+3. 
