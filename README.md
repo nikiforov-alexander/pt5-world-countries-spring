@@ -57,7 +57,7 @@
 [static]: 
     src/main/resources/static "/src/main/resources/static"
 [templates]: 
-    src/main/resources/static/templates "/src/main/resources/static/templates"
+    src/main/resources/templates "/src/main/resources/templates"
 <!-- Files in static -->
 [app.css]: 
     src/main/resources/static/app.css "src/main/resources/static/app.css"
@@ -66,13 +66,13 @@
 [flags]: 
     src/main/resources/static/flags "/src/main/resources/static/flags"
 [layout.html]: 
-    src/main/resources/static/templates/layout.html "/src/main/resources/static/templates/layout.html"
+    src/main/resources/templates/layout.html "/src/main/resources/templates/layout.html"
 [index.html]: 
-    src/main/resources/static/templates/index.html "/src/main/resources/static/templates/index.html"
+    src/main/resources/templates/index.html "/src/main/resources/templates/index.html"
 [error.html]: 
-    src/main/resources/static/templates/error.html "/src/main/resources/static/templates/error.html"
+    src/main/resources/templates/error.html "/src/main/resources/templates/error.html"
 [country-details.html]: 
-    src/main/resources/static/templates/country-details.html "/src/main/resources/static/templates/country-details.html"
+    src/main/resources/templates/country-details.html "/src/main/resources/templates/country-details.html"
 <!--Dirs and files in source folders-->
 [data]: 
     src/main/java/com/teamtreehouse/countries/data "src/main/java/com/teamtreehouse/countries/data"
