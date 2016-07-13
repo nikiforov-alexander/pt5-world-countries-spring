@@ -80,6 +80,8 @@
     src/main/java/com/teamtreehouse/countries/controller "src/main/java/com/teamtreehouse/countries/controller"
 [CountryController]: 
     src/main/java/com/teamtreehouse/countries/controller/CountryController.java "src/main/java/com/teamtreehouse/countries/controller/CountryController.java"
+[CountryRepository]: 
+    src/main/java/com/teamtreehouse/countries/data/CountryRepository.java "src/main/java/com/teamtreehouse/countries/data/CountryRepository.java"
 ### Eclipse Installation instructions
 <hr> <a id="eclipse"></a>
     I generated necessary `.classpath`, `.project` and 
@@ -149,12 +151,41 @@
     pieces of information for each country, presented in an easily-readable 
     fashion.
     <hr>
-    Detail view is modeled exactly as in provided html files. HTML 
+    Detail view is modeled exactly as in provided html files, except
+    maybe small change in header. HTML 
     Thymeleaf template file used to build a page is called
     [country-details.html]. It uses [layout.html] and in 
     [CountryController] is mapped to `countryDetails` method with
     URI "/country/{id}/{slugFromName}". The URI is self-explanatory.
     `id` is used as unique identifier to facilitate possible future
     database implementation. `slugFromName` is used to easier 
-    navigation for user.
+    navigation for user. 
+<hr>
+### Extra Credit
+6. <a id="task-6"></a> 
+    Add two ways of sorting the countries on the index page, 
+    for example by country name and by population.
+    <hr>
+    Two headers are added "Sort by
+    Name" and "Sort by Population", that are clickable and generate
+    upon clicking list of countries sorted by name and population
+    accordingly. This GET request with query parameter is realized in
+    `sortByParameter` in [CountryController]. URI responsible will
+    look like "/?sort=name" or "/?sort=population".
+<hr>
+7. <a id="task-7"></a> 
+    Pick a country with at least two official languages. On its 
+    detail page, render the languages as either an ordered or unordered list.
+    <hr>
+    On a detail page, languages are rendered in unordered list. Click 
+    page with India from home page: it is the only country with two
+    languages.
+<hr>
+8. <a id="task-8"></a> 
+    In the repository class’s method for fetching a single 
+    country object, use the streams API to filter the list of all countries 
+    down to the one being requested.
+    <hr>
+    `findById` method in [CountryRepository] is using stream API to fetch 
+    country with given id.
 <hr>
