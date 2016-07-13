@@ -48,18 +48,32 @@
     down to the one being requested.
 <!--Links-->
 
+<!--External URLs-->
 [spark-blog-readme]: 
     https://github.com/nikiforov-alexander/pt4-spark-blog#eclipse "Spark Blog README"
+<!--Directories-->
 [resources]: 
     src/main/resources "/src/main/resources"
 [static]: 
     src/main/resources/static "/src/main/resources/static"
+[templates]: 
+    src/main/resources/static/templates "/src/main/resources/static/templates"
+<!-- Files in static -->
 [app.css]: 
     src/main/resources/static/app.css "src/main/resources/static/app.css"
 [favicon.ico]: 
     src/main/resources/static/favicon.ico "src/main/resources/static/favicon.ico"
 [flags]: 
     src/main/resources/static/flags "/src/main/resources/static/flags"
+[layout.html]: 
+    src/main/resources/static/templates/layout.html "/src/main/resources/static/templates/layout.html"
+[index.html]: 
+    src/main/resources/static/templates/index.html "/src/main/resources/static/templates/index.html"
+[error.html]: 
+    src/main/resources/static/templates/error.html "/src/main/resources/static/templates/error.html"
+[country-details.html]: 
+    src/main/resources/static/templates/country-details.html "/src/main/resources/static/templates/country-details.html"
+<!--Dirs and files in source folders-->
 [data]: 
     src/main/java/com/teamtreehouse/countries/data "src/main/java/com/teamtreehouse/countries/data"
 [controller]: 
@@ -120,7 +134,27 @@
        (could be the country name and/or flag image) 
        
     <hr>
-    Home page is created as in template file. Two headers added "Sort by
+    Home page is created as in template file. HTML thymeleaf template 
+    file used to 
+    build page is called [index.html]. It is situated in [templates] 
+    directory, and uses [layout.html] file as a layout file. 
+    In [CountryController] is mapped to `listCountries` method with
+    URI "/".
+    Two headers are added "Sort by
     Name" and "Sort by Population", that are clickable and are
     implemented to solve [Task 6.] (#task-6)
+<hr>
+5. <a id="task-5"></a> 
+    Create the detail view. This view must contain all required 
+    pieces of information for each country, presented in an easily-readable 
+    fashion.
+    <hr>
+    Detail view is modeled exactly as in provided html files. HTML 
+    Thymeleaf template file used to build a page is called
+    [country-details.html]. It uses [layout.html] and in 
+    [CountryController] is mapped to `countryDetails` method with
+    URI "/country/{id}/{slugFromName}". The URI is self-explanatory.
+    `id` is used as unique identifier to facilitate possible future
+    database implementation. `slugFromName` is used to easier 
+    navigation for user.
 <hr>
