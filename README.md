@@ -50,11 +50,22 @@
 
 [spark-blog-readme]: 
     https://github.com/nikiforov-alexander/pt4-spark-blog#eclipse "Spark Blog README"
-[resources]: src/main/resources "/src/main/resources"
-[static]: src/main/resources/static "/src/main/resources/static"
-[app.css]: src/main/resources/static/app.css "src/main/resources/static/app.css"
-[favicon.ico]: src/main/resources/static/favicon.ico "src/main/resources/static/favicon.ico"
-[flags]: src/main/resources/static/flags "/src/main/resources/static/flags"
+[resources]: 
+    src/main/resources "/src/main/resources"
+[static]: 
+    src/main/resources/static "/src/main/resources/static"
+[app.css]: 
+    src/main/resources/static/app.css "src/main/resources/static/app.css"
+[favicon.ico]: 
+    src/main/resources/static/favicon.ico "src/main/resources/static/favicon.ico"
+[flags]: 
+    src/main/resources/static/flags "/src/main/resources/static/flags"
+[data]: 
+    src/main/java/com/teamtreehouse/countries/data "src/main/java/com/teamtreehouse/countries/data"
+[controller]: 
+    src/main/java/com/teamtreehouse/countries/controller "src/main/java/com/teamtreehouse/countries/controller"
+[CountryController]: 
+    src/main/java/com/teamtreehouse/countries/controller/CountryController.java "src/main/java/com/teamtreehouse/countries/controller/CountryController.java"
 ### Eclipse Installation instructions
 <hr> <a id="eclipse"></a>
     I generated necessary `.classpath`, `.project` and 
@@ -86,9 +97,17 @@
     the application. Save all static assets into the proper directory.
     <hr>
     Dependencies added, static assets saved in [static] directory:
-    - [app.css]
+    - [app.css]. NOTE: changed css a bit to include sorting links, see
+      [Task 6.] (#task-6)
     - [favicon.ico]
     - all flag images in [flags] sub-directory
     
     <hr>
-3. 
+3. <a id="task-3"></a>
+   Write the application code, including a data repository and 
+   controller. 
+   <hr>
+   Data repository is situated in [data] directory and 
+   called [CountryRepository]. Controller is in [controller] directory
+   and called [CountryController].
+<hr>
