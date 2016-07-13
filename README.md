@@ -47,8 +47,19 @@
     country object, use the streams API to filter the list of all countries 
     down to the one being requested.
 <!--Links-->
+
+[spark-blog-readme]: 
+    https://github.com/nikiforov-alexander/pt4-spark-blog#eclipse "Spark Blog README"
 ### Eclipse Installation instructions
 <hr> <a id="eclipse"></a>
     I generated necessary `.classpath`, `.project` and 
     `pt5-world-countries-spring.userlibraries`. I tested it once again
-    
+    It worked. As always there is a problem with `BuildPath` in 
+    `Eclipse`.
+    So it is better to set `src/main/java` as a source in `BuildPath`
+    options, if `Eclipse` does not understand it. Here is a link to old
+    [Spark Blog README.md][spark-blog-readme] just in case. To run a 
+    program `bootRun` task of `Gradle` is used.
+<hr>
+### Tasks
+1.
