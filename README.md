@@ -50,6 +50,5 @@
 ### Eclipse Installation instructions
 <hr> <a id="eclipse"></a>
     I generated necessary `.classpath`, `.project` and 
-    `pt5-world-countries-spring.userlibraries`. NOTE: there is always a
-    problem with sourcepath
+    `pt5-world-countries-spring.userlibraries`. I tested it once again
     
