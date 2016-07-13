@@ -111,3 +111,16 @@
    called [CountryRepository]. Controller is in [controller] directory
    and called [CountryController].
 <hr>
+4. <a id="task-4"></a> 
+    Create the index view, which will serve as the homepage of the 
+    application. This view must contain the following:
+    - A list of the countries you’ve chosen
+    - A small thumbnail image of each country’s flag next to its name
+    - A clickable link to each country’s detail page 
+       (could be the country name and/or flag image) 
+       
+    <hr>
+    Home page is created as in template file. Two headers added "Sort by
+    Name" and "Sort by Population", that are clickable and are
+    implemented to solve [Task 6.] (#task-6)
+<hr>
