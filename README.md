@@ -78,10 +78,14 @@
     src/main/java/com/teamtreehouse/countries/data "src/main/java/com/teamtreehouse/countries/data"
 [controller]: 
     src/main/java/com/teamtreehouse/countries/controller "src/main/java/com/teamtreehouse/countries/controller"
+[Country]: 
+    src/main/java/com/teamtreehouse/countries/model/Country.java "src/main/java/com/teamtreehouse/countries/model/Country.java"
 [CountryController]: 
     src/main/java/com/teamtreehouse/countries/controller/CountryController.java "src/main/java/com/teamtreehouse/countries/controller/CountryController.java"
 [CountryRepository]: 
     src/main/java/com/teamtreehouse/countries/data/CountryRepository.java "src/main/java/com/teamtreehouse/countries/data/CountryRepository.java"
+[TemplateConfig]: 
+    src/main/java/com/teamtreehouse/countries/config/TemplateConfig.java "src/main/java/com/teamtreehouse/countries/config/TemplateConfig.java"
 ### Eclipse Installation instructions
 <hr> <a id="eclipse"></a>
     I generated necessary `.classpath`, `.project` and 
@@ -189,3 +193,18 @@
     `findById` method in [CountryRepository] is using stream API to fetch 
     country with given id.
 <hr>
+
+### Notes
+- Error page.
+    I also added custom error page for exceptions, like 404. 
+- [TemplateConfig] file is used to add thymeleaf ability to be HTML5
+    compliant.
+- [Country] class:
+    - has a builder class that is used in [CountryRepository]. 
+    - It creates slug from country fame in constructor, and assigns it to
+        member variable `mSlugFromName`. It is used in creating URL for
+        detail view
+    - `getPopulationInHumanReadableFormat` is used to create nice 
+        population number at detail page.
+    - `NumberFormatException` is not caught on detail page. It is
+        subject for improvement
