@@ -30,28 +30,43 @@ public class CountryControllerTest {
     @Mock
     private CountryRepository countryRepository;
 
-    List<Country> mExampleListOfCounties;
+    private List<Country> mExampleListOfCounties;
+    private List<Country> mExampleListOfCountiesSortedByName;
+    private List<Country> mExampleListOfCountiesSortedByPopulation;
+    private Country mFranceCountry;
+    private Country mEcuadorCountry;
 
     @Before
     public void setUp() throws Exception {
         mockMvc = MockMvcBuilders
                 .standaloneSetup(countryController)
                 .build();
+        // set couple of test countries
+        mFranceCountry = new Country.CountryBuilder(1)
+                    .withName("France")
+                    .withCapital("Paris")
+                    .withPopulation(66710000L)
+                    .withFlagFileName("france.png")
+                    .withLanguages(Arrays.asList("French"))
+                    .build();
+        mEcuadorCountry = new Country.CountryBuilder(2)
+                    .withName("Ecuador")
+                    .withCapital("Quito")
+                    .withPopulation(1614400L)
+                    .withFlagFileName("ecuador.png")
+                    .withLanguages(Arrays.asList("Spanish"))
+                    .build();
+        // set test list of countries, serving as repository
         mExampleListOfCounties = Arrays.asList(
-                new Country.CountryBuilder(1)
-                        .withName("France")
-                        .withCapital("Paris")
-                        .withPopulation(66710000L)
-                        .withFlagFileName("france.png")
-                        .withLanguages(Arrays.asList("French"))
-                        .build(),
-                new Country.CountryBuilder(2)
-                        .withName("Ecuador")
-                        .withCapital("Quito")
-                        .withPopulation(1614400L)
-                        .withFlagFileName("ecuador.png")
-                        .withLanguages(Arrays.asList("Spanish"))
-                        .build()
+                mFranceCountry, mEcuadorCountry
+        );
+        // set test list of countries sorted by name
+        mExampleListOfCountiesSortedByName = Arrays.asList(
+                mEcuadorCountry, mFranceCountry
+        );
+        // set test list of countries sorted by population
+        mExampleListOfCountiesSortedByPopulation = Arrays.asList(
+                mFranceCountry, mEcuadorCountry
         );
     }
 
@@ -91,7 +106,8 @@ public class CountryControllerTest {
         mockMvc.perform(
                     get("/country/" + firstCountryId +
                     "/" + firstCountrySlug)
-                ).andExpect(status().isOk())
+                )
+                .andExpect(status().isOk())
                 .andExpect(view().name("country-details"))
                 .andExpect(
                         model().attribute("country",
@@ -100,5 +116,43 @@ public class CountryControllerTest {
         Mockito.verify(countryRepository).findById(
                 firstCountryInExampleRepository.getId()
         );
+    }
+
+    @Test
+    public void sortByName_ShouldRenderSortedListOfCountriesView()
+            throws Exception {
+        // Arrange the mock behaviour
+        Mockito.when(countryRepository.sortCountriesByName())
+                .thenReturn(
+                mExampleListOfCountiesSortedByName
+        );
+        // Act (perform the MVC request) and Assert results
+        mockMvc.perform(get("/?sort=name"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("index"))
+                .andExpect(
+                        model().attribute("countries",
+                                mExampleListOfCountiesSortedByName)
+                );
+        Mockito.verify(countryRepository).sortCountriesByName();
+    }
+
+    @Test
+    public void sortByPopulation_ShouldRenderSortedListOfCountriesView()
+            throws Exception {
+        // Arrange the mock behaviour
+        Mockito.when(countryRepository.sortCountriesByPopulation())
+                .thenReturn(
+                        mExampleListOfCountiesSortedByPopulation
+                );
+        // Act (perform the MVC request) and Assert results
+        mockMvc.perform(get("/?sort=population"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("index"))
+                .andExpect(
+                        model().attribute("countries",
+                                mExampleListOfCountiesSortedByPopulation)
+                );
+        Mockito.verify(countryRepository).sortCountriesByPopulation();
     }
 }
