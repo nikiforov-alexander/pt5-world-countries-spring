@@ -30,17 +30,14 @@ public class CountryControllerTest {
     @Mock
     private CountryRepository countryRepository;
 
+    List<Country> mExampleListOfCounties;
+
     @Before
     public void setUp() throws Exception {
         mockMvc = MockMvcBuilders
                 .standaloneSetup(countryController)
                 .build();
-    }
-
-    @Test
-    public void home_ShouldRenderListAllCountries() throws Exception {
-        // Arrange the mock behaviour
-        List<Country> countries = Arrays.asList(
+        mExampleListOfCounties = Arrays.asList(
                 new Country.CountryBuilder(1)
                         .withName("France")
                         .withCapital("Paris")
@@ -56,16 +53,52 @@ public class CountryControllerTest {
                         .withLanguages(Arrays.asList("Spanish"))
                         .build()
         );
+    }
+
+    @Test
+    public void home_ShouldRenderListAllCountries() throws Exception {
+        // Arrange the mock behaviour
         Mockito.when(countryRepository.findAll()).thenReturn(
-                countries
+                mExampleListOfCounties
         );
         // Act (perform the MVC request) and Assert results
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"))
                 .andExpect(
-                        model().attribute("countries", countries)
+                        model().attribute("countries",
+                                mExampleListOfCounties)
         );
         Mockito.verify(countryRepository).findAll();
+    }
+
+    @Test
+    public void detail_ShouldRenderCountryDetailPage() throws Exception {
+        // set up first country in repository
+        Country firstCountryInExampleRepository =
+                mExampleListOfCounties.get(0);
+        int firstCountryId =
+                firstCountryInExampleRepository.getId();
+        String firstCountrySlug =
+                firstCountryInExampleRepository.getSlugFromName();
+        // Arrange the mock behaviour
+        Mockito.when(countryRepository.findById(
+                firstCountryId
+            )).thenReturn(
+                firstCountryInExampleRepository
+        );
+        // Act (perform the MVC request) and Assert results
+        mockMvc.perform(
+                    get("/country/" + firstCountryId +
+                    "/" + firstCountrySlug)
+                ).andExpect(status().isOk())
+                .andExpect(view().name("country-details"))
+                .andExpect(
+                        model().attribute("country",
+                                firstCountryInExampleRepository)
+                );
+        Mockito.verify(countryRepository).findById(
+                firstCountryInExampleRepository.getId()
+        );
     }
 }
