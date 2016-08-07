@@ -66,5 +66,6 @@ public class CountryControllerTest {
                 .andExpect(
                         model().attribute("countries", countries)
         );
+        Mockito.verify(countryRepository).findAll();
     }
 }
