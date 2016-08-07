@@ -41,6 +41,10 @@ dependencies {
     // making thymeleaf to be HTML5 compliant see TemplateConfig @Bean
     // https://mvnrepository.com/artifact/net.sourceforge.nekohtml/nekohtml
     compile group: 'net.sourceforge.nekohtml', name: 'nekohtml', version: '1.9.22'
+
+    // testing dependencies from weather
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.apache.httpcomponents:httpclient:4.5.2'
 }
 
 bootRun {
