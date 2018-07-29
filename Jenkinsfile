@@ -5,12 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Build "'
-                    sh '''
-                    ls -lah
-                    ls gradlew
-                    ./gradlew.bat -v
-                    '''
+                bat 'set'
             }
         }
     }
